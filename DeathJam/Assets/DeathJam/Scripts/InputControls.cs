@@ -5,11 +5,11 @@ using UnityEngine;
 public class InputControls : MonoBehaviour 
 {
 
-	[SerializeField]float moveSpeed;// minFOV, maxFOV, scrollSpeed;
-	[SerializeField]GameObject weapon;
+	[SerializeField] float moveSpeed;// minFOV, maxFOV, scrollSpeed;
+	[SerializeField] GameObject weapon;
 	IWeapon currentWeapon;
 	Vector3 movement;
-	[SerializeField]LayerMask mask;
+	[SerializeField] LayerMask mask;
 	Transform tran;
 	// Update is called once per frame
 	void Start()
@@ -49,7 +49,7 @@ public class InputControls : MonoBehaviour
 			if (Physics.Raycast (ray, out hit, 20f, mask)) 
 			{
 				Vector3 dir = hit.point-transform.position;
-				currentWeapon.Attack(dir);
+				currentWeapon.Attack();
 			}
 		}
 		if(currentWeapon!=null)
@@ -59,18 +59,12 @@ public class InputControls : MonoBehaviour
 			weapon.transform.eulerAngles = new Vector3 (0, 0, weapon.transform.eulerAngles.z+90);
 			if(Vector3.Dot(mousePos-transform.position,Vector3.right)>0)//mouse is to the right of us
 			{
-				Debug.Log("I Was RIGHT");
-				//weapon.GetComponent<SpriteRenderer>().flipX = false;
 				weapon.GetComponent<SpriteRenderer>().flipY = false;
 
 			}else
 			{
-				//weapon.GetComponent<SpriteRenderer>().flipX = true;
 				weapon.GetComponent<SpriteRenderer>().flipY = true;
 			}
-//			if(Vector3.Angle(mousePos-transform.position,weapon.transform.right)>1)
-//			weapon.transform.Rotate(Vector3.forward, Vector3.Angle(mousePos-transform.position,weapon.transform.right));
-			//weapon.transform.LookAt(mousePos);
 		}
 	}
 

@@ -1,23 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DeathJam\Scripts\GunController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DeathJam\Scripts\CameraFollow.cs">
     <Files>
-      <File FileName="..\..\NNGather\HiveMind\Assets\_Scripts\CameraFollow.cs" Line="38" Column="3" />
       <File FileName="Assets\Roguelike\Scripts\BoardManager.cs" Line="1" Column="1" />
-      <File FileName="..\..\Future Tanks\Future Tanks - Streets of El Paso\Assets\_Scripts\TurretController.cs" Line="60" Column="10" />
-      <File FileName="..\..\NNGather\HiveMind\Assets\_Scripts\MoM's\MoMController.cs" Line="50" Column="92" />
-      <File FileName="Assets\DeathJam\Scripts\InputControls.cs" Line="51" Column="21" />
-      <File FileName="Assets\DeathJam\Scripts\GunController.cs" Line="33" Column="52" />
-      <File FileName="Assets\DeathJam\Scripts\Bullet.cs" Line="7" Column="34" />
-      <File FileName="..\..\NNGather\HiveMind\Assets\_Scripts\GameController\InputControls.cs" Line="78" Column="41" />
-      <File FileName="..\..\NNGather\HiveMind\Assets\_Scripts\Drone\FarmerController.cs" Line="38" Column="3" />
-      <File FileName="Assets\DeathJam\Scripts\IWeapon.cs" Line="7" Column="2" />
+      <File FileName="..\..\Future Tanks\Future Tanks - Streets of El Paso\Assets\_Scripts\TurretController.cs" Line="1" Column="1" />
+      <File FileName="..\..\NNGather\HiveMind\Assets\_Scripts\MoM's\MoMController.cs" Line="1" Column="1" />
+      <File FileName="..\..\NNGather\HiveMind\Assets\_Scripts\GameController\InputControls.cs" Line="1" Column="1" />
+      <File FileName="..\..\NNGather\HiveMind\Assets\_Scripts\Drone\FarmerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\GunController.cs" Line="22" Column="21" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\InputControls.cs" Line="52" Column="26" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\Bullet.cs" Line="9" Column="15" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\CameraFollow.cs" Line="34" Column="22" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Tubocass\Projects\DeathJam\DeathJam\Assets\DeathJam\Scripts\GunController.cs" line="33" column="52" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

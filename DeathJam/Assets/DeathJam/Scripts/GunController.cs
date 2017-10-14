@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour, IWeapon {
 
-	[SerializeField]GameObject bulletFab;
-	[SerializeField]Transform Muzzle;
+	[SerializeField] GameObject bulletFab;
+	[SerializeField] Transform Muzzle;
 	[SerializeField] int clipSize = 10;
 	GameObject[] bulletPool;
 	bool canFire = true;
@@ -19,7 +19,7 @@ public class GunController : MonoBehaviour, IWeapon {
 			bulletPool[b].SetActive(false);
 		}
 	}
-	public void Attack(Vector3 Position)
+	public void Attack()
 	{
 		if(canFire)
 		{
@@ -31,11 +31,6 @@ public class GunController : MonoBehaviour, IWeapon {
 					bulletPool[b].transform.position = Muzzle.position;
 					bulletPool[b].transform.rotation = this.transform.rotation;
 					bulletPool[b].SetActive(true);
-					//bulletPool[b].transform.LookAt(Direction,Vector3.forward);//Rotate(Vector3.forward,Vector3.Angle(transform.up,Direction));
-//					Quaternion rot = Quaternion.LookRotation (transform.position - Position, Vector3.forward);
-//					bulletPool[b].transform.rotation = rot;
-//					bulletPool[b].transform.eulerAngles = new Vector3 (0, 0, bulletPool[b].transform.eulerAngles.z);
-					//GetComponent<Rigidbody2D>().angularVelocity = 0;
 					break;
 				}
 			}

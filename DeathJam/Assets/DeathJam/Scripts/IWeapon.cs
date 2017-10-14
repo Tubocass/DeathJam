@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IWeapon
 {
-	void Attack(Vector3 Attack);
+	void Attack();
 }
