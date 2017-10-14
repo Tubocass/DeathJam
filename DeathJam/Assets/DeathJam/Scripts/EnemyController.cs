@@ -9,9 +9,16 @@ public class EnemyController : MonoBehaviour
 	[SerializeField] float moveSpeed;
 	IWeapon currentWeapon;
 	Vector3 movement;
+	[SerializeField] float startHealth = 10;
+	float health;
 
+	void OnEnable()
+	{
+		health = startHealth;
+	}
 	void Start()
 	{
+		target = GameObject.FindGameObjectWithTag("Player").transform;
 		if(weapon!=null)
 		{
 			currentWeapon = weapon.GetComponent<IWeapon>();
@@ -26,6 +33,13 @@ public class EnemyController : MonoBehaviour
 			transform.position = Vector3.MoveTowards(transform.position,targetDir,1f);
 		}
 	}
+	public void TakeDamage(float amount)
+	{
+		health -=amount;
+		if(health<=0)
+		{
+			gameObject.SetActive(false);
+		}
 
-
+	}
 }

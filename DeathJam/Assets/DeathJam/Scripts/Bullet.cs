@@ -25,8 +25,13 @@ public class Bullet : MonoBehaviour
 		yield return new WaitForSeconds(timer);
 		gameObject.SetActive(false);
 	}
-	void OnCollisionEnter(Collision bam)
+	void OnCollisionEnter2D(Collision2D bam)
 	{
+		if(bam.collider.CompareTag("Enemy"))
+		{
+			var enemy = bam.collider.GetComponent<EnemyController>();
+			enemy.TakeDamage(5);
+		}
 		if(!bam.collider.CompareTag("Gun"))
 		{
 			StopCoroutine(Death());
