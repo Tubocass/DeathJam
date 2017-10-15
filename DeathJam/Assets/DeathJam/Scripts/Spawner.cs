@@ -6,9 +6,11 @@ public class Spawner : MonoBehaviour
 {
 	[SerializeField] GameObject enemyPrefab;
 	GameObject[] enemies = new GameObject[10];
+	Transform[] spawnPoints;// = new Transform[4];
 
 	void Start()
 	{
+		spawnPoints = GetComponentsInChildren<Transform>();
 		for (int i = 0; i<enemies.Length;i++)
 		{
 			enemies[i] = (GameObject)Instantiate(enemyPrefab,transform.position,Quaternion.identity);
@@ -24,13 +26,13 @@ public class Spawner : MonoBehaviour
 			{
 				if(!enemies[b].activeSelf)
 				{
-					enemies[b].transform.position = transform.position;
+					enemies[b].transform.position = spawnPoints[Random.Range(1,spawnPoints.Length)].position;
 					//enemies[b].transform.rotation = this.transform.rotation;
 					enemies[b].SetActive(true);
 					break;
 				}
 			}
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(Random.Range(1,3));
 		}
 		yield return null;
 	}

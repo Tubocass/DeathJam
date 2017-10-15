@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour 
 {
+	public int pointValue = 1;
 	[SerializeField] Transform target;
 	[SerializeField] GameObject weapon;
 	[SerializeField] float moveSpeed;
@@ -39,6 +42,7 @@ public class EnemyController : MonoBehaviour
 		if(health<=0)
 		{
 			gameObject.SetActive(false);
+			UnityEventManager.TriggerEvent("Score",pointValue);
 		}
 
 	}

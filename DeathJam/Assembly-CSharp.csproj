@@ -57,7 +57,9 @@
      <Compile Include="Assets\DeathJam\Scripts\GunController.cs" />
      <Compile Include="Assets\DeathJam\Scripts\InputControls.cs" />
      <Compile Include="Assets\DeathJam\Scripts\IWeapon.cs" />
+     <Compile Include="Assets\DeathJam\Scripts\ScoreUI.cs" />
      <Compile Include="Assets\DeathJam\Scripts\Spawner.cs" />
+     <Compile Include="Assets\DeathJam\Scripts\UnityEventManager.cs" />
      <Compile Include="Assets\Lobby\Scripts\DraggablePanel.cs" />
      <Compile Include="Assets\Lobby\Scripts\EventSystemChecker.cs" />
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyCountdownPanel.cs" />
