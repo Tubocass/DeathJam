@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputControls : MonoBehaviour 
+public class InputControls : MonoBehaviour, IHealth 
 {
-
+	public int startHealth = 10;
 	[SerializeField] float moveSpeed;// minFOV, maxFOV, scrollSpeed;
 	[SerializeField] GameObject weapon;
 	IWeapon currentWeapon;
 	Vector3 movement;
 	[SerializeField] LayerMask mask;
 	Transform tran;
+	int health;
 	// Update is called once per frame
 	void Start()
 	{
 		//mask = 1<<LayerMask.NameToLayer("Ground");
+		health = startHealth;
 		tran = transform;
 		if(weapon!=null)
 		{
@@ -49,7 +51,7 @@ public class InputControls : MonoBehaviour
 			if (Physics.Raycast (ray, out hit, 20f, mask)) 
 			{
 				Vector3 dir = hit.point-transform.position;
-				currentWeapon.Attack();
+				currentWeapon.PrimaryAttack();
 			}
 		}
 		if(currentWeapon!=null)
@@ -68,4 +70,20 @@ public class InputControls : MonoBehaviour
 		}
 	}
 
+	public void TakeDamage(int amount)
+	{
+		health-=amount;
+	}
+	public void Heal(int amount)
+	{
+		health+=amount;
+	}
+
+	void OnCollisionEnter2D(Collision2D bam)
+	{
+		if(bam.collider.CompareTag("Enemy"))
+		{
+			TakeDamage(1);
+		}
+	}
 }

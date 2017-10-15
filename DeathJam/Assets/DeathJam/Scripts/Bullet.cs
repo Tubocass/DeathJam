@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour 
 {
+	public int team = 0;//0=player, 1=NPC
 	[SerializeField] float speed = 4f, timer = 4f;
 	//Transform tran;
 	void OnEnable () 
@@ -12,24 +13,18 @@ public class Bullet : MonoBehaviour
 		GetComponent<Rigidbody2D>().velocity = transform.right*speed;
 		StartCoroutine(Death());
 	}
-	void Update () 
-	{
-		//tran.Translate(Vector3.up*speed*Time.deltaTime);
-//		Vector3 targetDir  = tran.position + tran.right*speed; 
-//		targetDir.z = 0;
-//		tran.position = Vector3.MoveTowards(tran.position,targetDir, speed);
 
-	}
 	IEnumerator Death()
 	{
 		yield return new WaitForSeconds(timer);
 		gameObject.SetActive(false);
 	}
+
 	void OnCollisionEnter2D(Collision2D bam)
 	{
 		if(bam.collider.CompareTag("Enemy"))
 		{
-			var enemy = bam.collider.GetComponent<EnemyController>();
+			var enemy = bam.collider.GetComponent<IHealth>();
 			enemy.TakeDamage(5);
 		}
 		if(!bam.collider.CompareTag("Gun"))

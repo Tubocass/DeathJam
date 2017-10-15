@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Events;
 
-public class EnemyController : MonoBehaviour 
+public class EnemyController : MonoBehaviour, IHealth 
 {
 	public int pointValue = 1;
 	[SerializeField] Transform target;
@@ -12,8 +12,8 @@ public class EnemyController : MonoBehaviour
 	[SerializeField] float moveSpeed;
 	IWeapon currentWeapon;
 	Vector3 movement;
-	[SerializeField] float startHealth = 10;
-	float health;
+	[SerializeField] int startHealth = 10;
+	int health;
 
 	void OnEnable()
 	{
@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
 			transform.position = Vector3.MoveTowards(transform.position,targetDir,1f);
 		}
 	}
-	public void TakeDamage(float amount)
+	public void TakeDamage(int amount)
 	{
 		health -=amount;
 		if(health<=0)
@@ -44,6 +44,15 @@ public class EnemyController : MonoBehaviour
 			gameObject.SetActive(false);
 			UnityEventManager.TriggerEvent("Score",pointValue);
 		}
-
 	}
+	public void Heal(int Amount)
+	{}
+	void OnCollisionEnter2D(Collision2D bam)
+	{
+		if(bam.collider.CompareTag("Player"))
+		{
+			bam.collider.GetComponent<IHealth>().TakeDamage(1);
+		}
+	}
+
 }

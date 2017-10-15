@@ -34,7 +34,6 @@ public class Spawner : MonoBehaviour
 			}
 			yield return new WaitForSeconds(Random.Range(1,3));
 		}
-		yield return null;
 	}
 
 

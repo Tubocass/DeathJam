@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IWeapon
+public interface IHealth 
 {
-	void PrimaryAttack();
-	void SecondaryAttack();
+	void TakeDamage(int Amount);
+	void Heal(int Amount);
 }

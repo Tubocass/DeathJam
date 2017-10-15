@@ -19,7 +19,7 @@ public class GunController : MonoBehaviour, IWeapon {
 			bulletPool[b].SetActive(false);
 		}
 	}
-	public void Attack()
+	public void PrimaryAttack()
 	{
 		if(canFire)
 		{
@@ -37,6 +37,9 @@ public class GunController : MonoBehaviour, IWeapon {
 			canFire = false;
 			StartCoroutine(Cooldown());
 		}
+	}
+	public void SecondaryAttack()
+	{
 	}
 
 	IEnumerator Cooldown()

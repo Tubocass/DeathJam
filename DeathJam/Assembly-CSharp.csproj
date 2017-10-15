@@ -55,6 +55,7 @@
      <Compile Include="Assets\DeathJam\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\DeathJam\Scripts\EnemyController.cs" />
      <Compile Include="Assets\DeathJam\Scripts\GunController.cs" />
+     <Compile Include="Assets\DeathJam\Scripts\IHealth.cs" />
      <Compile Include="Assets\DeathJam\Scripts\InputControls.cs" />
      <Compile Include="Assets\DeathJam\Scripts\IWeapon.cs" />
      <Compile Include="Assets\DeathJam\Scripts\ScoreUI.cs" />
