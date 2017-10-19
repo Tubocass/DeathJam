@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212164548036061902}
   - component: {fileID: 114956402071883736}
   - component: {fileID: 61423776554724356}
+  - component: {fileID: 50211351192027650}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -42,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50211351192027650
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440230144026022}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61423776554724356
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -78,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f541f8f7e8d4e148b8f31a642008d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointValue: 1
   target: {fileID: 0}
   weapon: {fileID: 0}
   moveSpeed: 3

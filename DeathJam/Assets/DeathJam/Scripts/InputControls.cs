@@ -43,7 +43,7 @@ public class InputControls : MonoBehaviour, IHealth
 			transform.position = Vector3.MoveTowards(transform.position,targetDir,1f);
 		}
 
-		if (Input.GetMouseButton (0)) 
+		if (currentWeapon!=null && Input.GetMouseButtonUp (0)) 
 		{
 			//currentWeapon.Attack(dir);
 			RaycastHit hit;
@@ -51,21 +51,8 @@ public class InputControls : MonoBehaviour, IHealth
 			if (Physics.Raycast (ray, out hit, 20f, mask)) 
 			{
 				Vector3 dir = hit.point-transform.position;
-				currentWeapon.PrimaryAttack();
-			}
-		}
-		if(currentWeapon!=null)
-		{
-			Quaternion rot = Quaternion.LookRotation (weapon.transform.position - mousePos, Vector3.forward);
-			weapon.transform.rotation = rot;
-			weapon.transform.eulerAngles = new Vector3 (0, 0, weapon.transform.eulerAngles.z+90);
-			if(Vector3.Dot(mousePos-transform.position,Vector3.right)>0)//mouse is to the right of us
-			{
-				weapon.GetComponent<SpriteRenderer>().flipY = false;
-
-			}else
-			{
-				weapon.GetComponent<SpriteRenderer>().flipY = true;
+				dir = dir/dir.magnitude;
+				currentWeapon.PrimaryAttack(dir);
 			}
 		}
 	}

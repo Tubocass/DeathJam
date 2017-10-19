@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface IWeapon
 {
-	void PrimaryAttack();
-	void SecondaryAttack();
+	void PrimaryAttack(Vector2 direction);
+	void SecondaryAttack(Vector2 direction);
+	//void Equip();
+	//void UnEquip();
 }

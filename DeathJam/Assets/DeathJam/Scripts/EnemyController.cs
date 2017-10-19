@@ -47,12 +47,4 @@ public class EnemyController : MonoBehaviour, IHealth
 	}
 	public void Heal(int Amount)
 	{}
-	void OnCollisionEnter2D(Collision2D bam)
-	{
-		if(bam.collider.CompareTag("Player"))
-		{
-			bam.collider.GetComponent<IHealth>().TakeDamage(1);
-		}
-	}
-
 }

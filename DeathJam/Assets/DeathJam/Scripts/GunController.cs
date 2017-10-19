@@ -9,6 +9,7 @@ public class GunController : MonoBehaviour, IWeapon {
 	[SerializeField] int clipSize = 10;
 	GameObject[] bulletPool;
 	bool canFire = true;
+	bool isEquipped = true;
 
 	void OnEnable()
 	{
@@ -19,7 +20,25 @@ public class GunController : MonoBehaviour, IWeapon {
 			bulletPool[b].SetActive(false);
 		}
 	}
-	public void PrimaryAttack()
+	void Update()
+	{
+		if(isEquipped)
+		{
+			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Quaternion rot = Quaternion.LookRotation (transform.position - mousePos, Vector3.forward);
+			transform.rotation = rot;
+			transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z+90);
+			if(Vector3.Dot(mousePos-transform.position,Vector3.right)>0)//mouse is to the right of us
+			{
+				GetComponent<SpriteRenderer>().flipY = false;
+
+			}else
+			{
+				GetComponent<SpriteRenderer>().flipY = true;
+			}
+		}
+	}
+	public void PrimaryAttack(Vector2 direction)
 	{
 		if(canFire)
 		{
@@ -38,13 +57,13 @@ public class GunController : MonoBehaviour, IWeapon {
 			StartCoroutine(Cooldown());
 		}
 	}
-	public void SecondaryAttack()
+	public void SecondaryAttack(Vector2 direction)
 	{
 	}
 
 	IEnumerator Cooldown()
 	{
-		yield return new WaitForSeconds(0.25f);
+		yield return new WaitForSeconds(0.15f);
 		canFire = true;
 	}
 }
