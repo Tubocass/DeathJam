@@ -59,13 +59,13 @@
      <Compile Include="Assets\DeathJam\Scripts\HealthBar.cs" />
      <Compile Include="Assets\DeathJam\Scripts\IHealth.cs" />
      <Compile Include="Assets\DeathJam\Scripts\InputControls.cs" />
-     <Compile Include="Assets\DeathJam\Scripts\IWeapon.cs" />
      <Compile Include="Assets\DeathJam\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\DeathJam\Scripts\ScoreUI.cs" />
      <Compile Include="Assets\DeathJam\Scripts\Spawner.cs" />
      <Compile Include="Assets\DeathJam\Scripts\SwordController.cs" />
      <Compile Include="Assets\DeathJam\Scripts\UnitMover.cs" />
      <Compile Include="Assets\DeathJam\Scripts\UnityEventManager.cs" />
+     <Compile Include="Assets\DeathJam\Scripts\Weapon.cs" />
      <Compile Include="Assets\Lobby\Scripts\DraggablePanel.cs" />
      <Compile Include="Assets\Lobby\Scripts\EventSystemChecker.cs" />
      <Compile Include="Assets\Lobby\Scripts\Lobby\LobbyCountdownPanel.cs" />

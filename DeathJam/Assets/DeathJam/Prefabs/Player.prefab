@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1340306773228182
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4014885364602866
 Transform:
   m_ObjectHideFlags: 1
@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e33129826c225499fcd91125a4ae59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myType: 0
+  ammo: 420
   bulletFab: {fileID: 1951853930292354, guid: 2cf377f29debd3e429f1e052e5768b5c, type: 2}
   Muzzle: {fileID: 4276225355469330}
   clipSize: 15
@@ -251,8 +253,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30b4082c6c5f1e4c851a86367fa7aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  weapon: {fileID: 1936919319212640}
+  weapon: {fileID: 1258705171261190}
+  weaponImages:
+  - {fileID: 21300000, guid: 51a7e334dc7d124408de8c5bb3899766, type: 3}
+  - {fileID: 21300000, guid: 4f15aeec79a6e0c40aca3a73a568a931, type: 3}
+  - {fileID: 21300000, guid: 51a7e334dc7d124408de8c5bb3899766, type: 3}
+  currentWeaponIcon: {fileID: 0}
+  ammoCount: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 4096
@@ -267,6 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917b2243f494d824b8b33af0c6b1d280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myType: 1
+  ammo: 0
   mask:
     serializedVersion: 2
     m_Bits: 1

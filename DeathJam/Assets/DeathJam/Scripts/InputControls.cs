@@ -1,26 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputControls : MonoBehaviour 
 {
-	//public int startHealth = 10;
-	[SerializeField] float moveSpeed;// minFOV, maxFOV, scrollSpeed;
 	[SerializeField] GameObject weapon;
-	IWeapon currentWeapon;
-	Vector3 movement;
+	[SerializeField] Sprite[] weaponImages;// = Image[3];
+	[SerializeField] Image currentWeaponIcon;
+	[SerializeField] GameObject ammoCount;
+	Weapon currentWeapon;
+
 	[SerializeField] LayerMask mask;
-	//Transform tran;
-	//int health;
-	// Update is called once per frame
+
 	void Start()
 	{
-		//mask = 1<<LayerMask.NameToLayer("Ground");
-		//health = startHealth;
-		//tran = transform;
 		if(weapon!=null)
 		{
-			currentWeapon = weapon.GetComponent<IWeapon>();
+			currentWeapon = weapon.GetComponent<Weapon>();
+			currentWeaponIcon.sprite = weaponImages[(int)currentWeapon.myType];
+			ammoCount.GetComponent<Text>().text = "Ammo: "+currentWeapon.ammo;
 		}
 	}
 	void Update () 
@@ -53,18 +52,10 @@ public class InputControls : MonoBehaviour
 				Vector3 dir = hit.point-transform.position;
 				dir = dir/dir.magnitude;
 				currentWeapon.PrimaryAttack(dir);
+				ammoCount.GetComponent<Text>().text = "Ammo: "+currentWeapon.ammo;
 			}
 		}
 	}
-
-//	public void TakeDamage(int amount)
-//	{
-//		health-=amount;
-//	}
-//	public void Heal(int amount)
-//	{
-//		health+=amount;
-//	}
 
 	void OnCollisionEnter2D(Collision2D bam)
 	{

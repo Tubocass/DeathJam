@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour, IHealth
 	[SerializeField] Transform target;
 	[SerializeField] GameObject weapon;
 	[SerializeField] float moveSpeed;
-	IWeapon currentWeapon;
+	Weapon currentWeapon;
 	Vector3 movement;
 	[SerializeField] int startHealth = 10;
 	int health;
@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour, IHealth
 		target = GameObject.FindGameObjectWithTag("Player").transform;
 		if(weapon!=null)
 		{
-			currentWeapon = weapon.GetComponent<IWeapon>();
+			currentWeapon = weapon.GetComponent<Weapon>();
 		}
 	}
 	void Update()

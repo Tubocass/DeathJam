@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordController : MonoBehaviour, IWeapon 
+public class SwordController : Weapon 
 {
 	Animator anim;
 	[SerializeField]LayerMask mask;
@@ -32,7 +32,7 @@ public class SwordController : MonoBehaviour, IWeapon
 		}
 	}
 
-	public void PrimaryAttack(Vector2 direction)
+	public override void PrimaryAttack(Vector2 direction)
 	{
 		anim.SetTrigger("Swing");
 		RaycastHit2D hit;
@@ -49,7 +49,7 @@ public class SwordController : MonoBehaviour, IWeapon
 			enemy.TakeDamage(5);
 		}
 	}
-	public void SecondaryAttack(Vector2 direction)
+	public override void SecondaryAttack(Vector2 direction)
 	{
 
 	}

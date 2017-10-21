@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunController : MonoBehaviour, IWeapon {
-
+public class GunController : Weapon 
+{
 	[SerializeField] GameObject bulletFab;
 	[SerializeField] Transform Muzzle;
 	[SerializeField] int clipSize = 10;
@@ -38,10 +38,11 @@ public class GunController : MonoBehaviour, IWeapon {
 			}
 		}
 	}
-	public void PrimaryAttack(Vector2 direction)
+	public override void PrimaryAttack(Vector2 direction)
 	{
-		if(canFire)
+		if(canFire && ammo>0)
 		{
+			ammo--;
 			//Quaternion q = Quaternion.LookRotation(Direction - Muzzle.position, Vector3.forward);
 			for(int b = 0; b<bulletPool.Length; b++)
 			{
@@ -57,7 +58,7 @@ public class GunController : MonoBehaviour, IWeapon {
 			StartCoroutine(Cooldown());
 		}
 	}
-	public void SecondaryAttack(Vector2 direction)
+	public override void SecondaryAttack(Vector2 direction)
 	{
 	}
 
