@@ -7,6 +7,7 @@ public abstract class Weapon: MonoBehaviour
 	public enum WeaponType{Pistol, Sword, MG}
 	public WeaponType myType = new WeaponType();
 	public int ammo;
+	public bool isEquipped = false;
 
 	public abstract void PrimaryAttack(Vector2 direction);
 	public abstract void SecondaryAttack(Vector2 direction);

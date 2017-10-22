@@ -35,16 +35,25 @@ public class PlayerHealth : MonoBehaviour, IHealth
 			if(activeHeart<0)
 			{
 				isDead = true;
+				activeHeart = 0;
 			}else
 			{
-				currentHeart = hearts[activeHeart].GetComponent<HealthBar>();;
+				currentHeart = hearts[activeHeart].GetComponent<HealthBar>();
 			}
 
 		}
 	}
 	public void Heal(int amount)
 	{
-		//health+=amount;
+		currentHeart.AddHealth(3);
+		if(activeHeart<maxHearts-1)
+		{
+			activeHeart += 1;
+			hearts[activeHeart].SetActive(true);
+			currentHeart = hearts[activeHeart].GetComponent<HealthBar>();
+			currentHeart.AddHealth(3);
+
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D bam)

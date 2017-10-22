@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour 
+public class EnemySpawner : MonoBehaviour 
 {
 	[SerializeField] GameObject enemyPrefab;
 	GameObject[] enemies = new GameObject[10];

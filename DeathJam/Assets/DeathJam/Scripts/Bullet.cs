@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
 			var enemy = bam.collider.GetComponent<IHealth>();
 			enemy.TakeDamage(5);
 		}
-		if(!bam.collider.CompareTag("Gun"))
+		if(!bam.collider.CompareTag("Weapon"))
 		{
 			StopCoroutine(Death());
 			gameObject.SetActive(false);

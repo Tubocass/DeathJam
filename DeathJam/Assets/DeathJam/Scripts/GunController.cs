@@ -9,7 +9,6 @@ public class GunController : Weapon
 	[SerializeField] int clipSize = 10;
 	GameObject[] bulletPool;
 	bool canFire = true;
-	bool isEquipped = true;
 
 	void OnEnable()
 	{
@@ -60,6 +59,7 @@ public class GunController : Weapon
 	}
 	public override void SecondaryAttack(Vector2 direction)
 	{
+		//Pistol whip
 	}
 
 	IEnumerator Cooldown()

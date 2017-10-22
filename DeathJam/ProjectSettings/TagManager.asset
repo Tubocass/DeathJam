@@ -5,15 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - Crate
   - Enemy
-  - Wall
   - Obstacle
   - Bullet
-  - BombPickup
   - ExplosionFX
-  - HealthBar
-  - Gun
+  - Weapon
+  - Health
+  - ItemPickup
   layers:
   - Default
   - TransparentFX

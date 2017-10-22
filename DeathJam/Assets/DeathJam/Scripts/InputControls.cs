@@ -20,6 +20,7 @@ public class InputControls : MonoBehaviour
 			currentWeapon = weapon.GetComponent<Weapon>();
 			currentWeaponIcon.sprite = weaponImages[(int)currentWeapon.myType];
 			ammoCount.GetComponent<Text>().text = "Ammo: "+currentWeapon.ammo;
+			currentWeapon.isEquipped = true;
 		}
 	}
 	void Update () 
@@ -42,7 +43,7 @@ public class InputControls : MonoBehaviour
 //			transform.position = Vector3.MoveTowards(transform.position,targetDir,1f);
 //		}
 
-		if (currentWeapon!=null && Input.GetMouseButtonUp (0)) 
+		if (currentWeapon!=null && Input.GetMouseButton (0)) 
 		{
 			//currentWeapon.Attack(dir);
 			RaycastHit hit;
@@ -59,9 +60,17 @@ public class InputControls : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D bam)
 	{
-		if(bam.collider.CompareTag("Enemy"))
+		if(bam.collider.CompareTag("ItemPickup"))
 		{
-			//TakeDamage(1);
+//			IPickup item = bam.collider.GetComponent<ItemPickup>().item;
+//			item.Equip(this.transform);
+			ItemPickup pickup = bam.collider.GetComponent<ItemPickup>();
+			if(pickup.item.CompareTag("Health"))
+			{
+				GetComponent<PlayerHealth>().Heal(1);
+				Destroy(pickup.item);
+			}
+			pickup.Destroy();
 		}
 	}
 }

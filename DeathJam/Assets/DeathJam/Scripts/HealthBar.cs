@@ -25,4 +25,12 @@ public class HealthBar : MonoBehaviour
 		return hits>=maxHits;
 	}
 
+	public void AddHealth(int amount)//return true if healed, return false if already at full health
+	{
+		hits-=amount;
+		if(hits<0)
+		hits=0;
+		anim.SetInteger("Hits",hits);
+	}
+
 }

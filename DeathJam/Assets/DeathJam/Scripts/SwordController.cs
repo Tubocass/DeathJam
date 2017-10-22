@@ -6,7 +6,7 @@ public class SwordController : Weapon
 {
 	Animator anim;
 	[SerializeField]LayerMask mask;
-	bool isEquipped = true;
+
 	void Start()
 	{
 		anim = GetComponent<Animator>();
