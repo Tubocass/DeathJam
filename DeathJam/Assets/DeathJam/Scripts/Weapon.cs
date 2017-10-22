@@ -11,6 +11,6 @@ public abstract class Weapon: MonoBehaviour
 
 	public abstract void PrimaryAttack(Vector2 direction);
 	public abstract void SecondaryAttack(Vector2 direction);
-	//void Equip();
-	//void UnEquip();
+	public abstract void Equip();
+	public abstract void UnEquip();
 }

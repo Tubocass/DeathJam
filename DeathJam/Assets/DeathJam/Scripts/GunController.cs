@@ -61,7 +61,14 @@ public class GunController : Weapon
 	{
 		//Pistol whip
 	}
-
+	public override void Equip()
+	{}
+	public override void UnEquip()
+	{
+		transform.parent = null;
+		isEquipped = false;
+		Destroy(gameObject,6f);
+	}
 	IEnumerator Cooldown()
 	{
 		yield return new WaitForSeconds(0.15f);

@@ -53,4 +53,8 @@ public class SwordController : Weapon
 	{
 
 	}
+	public override void Equip()
+	{}
+	public override void UnEquip()
+	{}
 }

@@ -1,30 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DeathJam\Scripts\ScoreUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DeathJam\Scripts\InputControls.cs">
     <Files>
       <File FileName="Assets\DeathJam\Scripts\GunController.cs" Line="62" Column="16" />
-      <File FileName="Assets\DeathJam\Scripts\InputControls.cs" Line="71" Column="26" />
-      <File FileName="Assets\DeathJam\Scripts\Bullet.cs" Line="30" Column="38" />
+      <File FileName="Assets\DeathJam\Scripts\InputControls.cs" Line="46" Column="50" />
+      <File FileName="Assets\DeathJam\Scripts\Bullet.cs" Line="1" Column="1" />
       <File FileName="Assets\DeathJam\Scripts\CameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\EnemyController.cs" Line="27" Column="40" />
-      <File FileName="Assets\DeathJam\Scripts\ScoreUI.cs" Line="24" Column="3" />
-      <File FileName="Assets\DeathJam\Scripts\EnemySpawner.cs" Line="5" Column="19" />
-      <File FileName="Assets\DeathJam\Scripts\Weapon.cs" Line="10" Column="33" />
-      <File FileName="Assets\DeathJam\Scripts\SwordController.cs" Line="9" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\IPickup.cs" Line="7" Column="24" />
-      <File FileName="Assets\DeathJam\Scripts\PlayerHealth.cs" Line="38" Column="21" />
-      <File FileName="Assets\DeathJam\Scripts\ItemPickup.cs" Line="34" Column="55" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\EnemyController.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\ScoreUI.cs" Line="6" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\EnemySpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\SwordController.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\IPickup.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\PlayerHealth.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\ItemPickup.cs" Line="8" Column="36" NotebookId="1" />
       <File FileName="Assets\DeathJam\Scripts\HealthBar.cs" Line="33" Column="32" NotebookId="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="DeathJam" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 0
-  ammo: 0
+  ammo: 100
   isEquipped: 0
   bulletFab: {fileID: 1951853930292354, guid: 2cf377f29debd3e429f1e052e5768b5c, type: 2}
   Muzzle: {fileID: 4773287945968594}

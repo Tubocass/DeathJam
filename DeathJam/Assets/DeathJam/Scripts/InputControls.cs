@@ -9,15 +9,26 @@ public class InputControls : MonoBehaviour
 	[SerializeField] Sprite[] weaponImages;// = Image[3];
 	[SerializeField] Image currentWeaponIcon;
 	[SerializeField] GameObject ammoCount;
+	[SerializeField] Transform weaponSlot;
 	Weapon currentWeapon;
 
 	[SerializeField] LayerMask mask;
 
 	void Start()
 	{
-		if(weapon!=null)
+		EquipWeapon(weapon);
+	}
+	void EquipWeapon(GameObject weaponObj)
+	{
+		if(weaponObj!=null)
 		{
-			currentWeapon = weapon.GetComponent<Weapon>();
+			if (currentWeapon != null) 
+			{
+				currentWeapon.UnEquip ();
+			}
+			weaponObj.transform.parent = weaponSlot;
+			weaponObj.transform.position = weaponSlot.position;
+			currentWeapon = weaponObj.GetComponent<Weapon>();
 			currentWeaponIcon.sprite = weaponImages[(int)currentWeapon.myType];
 			ammoCount.GetComponent<Text>().text = "Ammo: "+currentWeapon.ammo;
 			currentWeapon.isEquipped = true;
@@ -60,7 +71,7 @@ public class InputControls : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D bam)
 	{
-		if(bam.collider.CompareTag("ItemPickup"))
+		if(bam.collider.CompareTag("ItemPickup")&& bam.collider.GetComponent<Renderer>().enabled)
 		{
 //			IPickup item = bam.collider.GetComponent<ItemPickup>().item;
 //			item.Equip(this.transform);
@@ -69,6 +80,11 @@ public class InputControls : MonoBehaviour
 			{
 				GetComponent<PlayerHealth>().Heal(1);
 				Destroy(pickup.item);
+			}
+			if(pickup.item.CompareTag("Weapon"))
+			{
+				EquipWeapon(pickup.item);
+				//Destroy(pickup.item);
 			}
 			pickup.Destroy();
 		}
