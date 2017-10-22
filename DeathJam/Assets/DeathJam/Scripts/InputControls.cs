@@ -69,13 +69,13 @@ public class InputControls : MonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D bam)
+	void OnTriggerEnter2D(Collider2D bam)
 	{
-		if(bam.collider.CompareTag("ItemPickup")&& bam.collider.GetComponent<Renderer>().enabled)
+		if(bam.CompareTag("ItemPickup")&& bam.GetComponent<Renderer>().enabled)
 		{
 //			IPickup item = bam.collider.GetComponent<ItemPickup>().item;
 //			item.Equip(this.transform);
-			ItemPickup pickup = bam.collider.GetComponent<ItemPickup>();
+			ItemPickup pickup = bam.GetComponent<ItemPickup>();
 			if(pickup.item.CompareTag("Health"))
 			{
 				GetComponent<PlayerHealth>().Heal(1);
