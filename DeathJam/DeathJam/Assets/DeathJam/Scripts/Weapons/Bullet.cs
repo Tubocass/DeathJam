@@ -22,16 +22,38 @@ public class Bullet : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D bam)
 	{
-		if(bam.collider.CompareTag("Enemy"))
+		switch(bam.collider.tag)
 		{
-			var enemy = bam.collider.GetComponent<IHealth>();
-			enemy.TakeDamage(1);
+			case "Bullet":
+			break;
+			case "Enemy":
+			{
+				var enemy = bam.collider.GetComponent<IHealth>();
+				enemy.TakeDamage(1);
+				gameObject.SetActive(false);
+			}
+			break;
+			case "Obstacle":
+			{
+				gameObject.SetActive(false);
+			}
+			break;
 		}
-		if(!bam.collider.CompareTag("Weapon"))
-		{
-			StopCoroutine(Death());
-			gameObject.SetActive(false);
-		}
+//		if(bam.collider.CompareTag("Bullet"))
+//		{
+//			return;
+//		}
+//		if(bam.collider.CompareTag("Enemy"))
+//		{
+//			var enemy = bam.collider.GetComponent<IHealth>();
+//			enemy.TakeDamage(1);
+//		}
+//		if(!bam.collider.CompareTag("Weapon"))
+//		{
+//			StopCoroutine(Death());
+//			gameObject.SetActive(false);
+//		}
+		//Debug.Log(bam.collider.tag);
 	}
 
 }

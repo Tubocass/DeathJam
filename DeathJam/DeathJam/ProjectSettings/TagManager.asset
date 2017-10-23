@@ -9,6 +9,8 @@ TagManager:
   - Health
   - Weapon
   - WeaponUI
+  - Bullet
+  - Obstacle
   layers:
   - Default
   - TransparentFX

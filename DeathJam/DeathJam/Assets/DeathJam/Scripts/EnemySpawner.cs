@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
 					break;
 				}
 			}
-			yield return new WaitForSeconds(Random.Range(0.2f,2f));
+			yield return new WaitForSeconds(Random.Range(0.2f,1f));
 		}
 	}
 

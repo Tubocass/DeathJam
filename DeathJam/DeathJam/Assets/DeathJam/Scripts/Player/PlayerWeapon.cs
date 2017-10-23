@@ -12,8 +12,8 @@ public class PlayerWeapon : MonoBehaviour
 
 	void Start()
 	{
-		EquipWeapon(weapon);
 		ui = GameObject.FindGameObjectWithTag("WeaponUI").GetComponent<WeaponUI>();
+		EquipWeapon(weapon);
 	}
 	public void EquipWeapon(GameObject weaponObj)
 	{

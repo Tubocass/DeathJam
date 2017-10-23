@@ -7,9 +7,11 @@ public class UnitMover : MonoBehaviour
 	[SerializeField] float moveSpeed;
 	Transform tran;
 	Vector3 movement;
+	Rigidbody2D rigid;
 	void Start () 
 	{
 		tran = transform;
+		rigid = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -30,6 +32,12 @@ public class UnitMover : MonoBehaviour
 	{
 //		direction = direction/direction.magnitude;
 		Vector3 targetDir  = tran.position + direction * moveSpeed * Time.deltaTime;
-		tran.position = Vector3.MoveTowards(tran.position,targetDir,1f);
+		if(rigid!=null)
+		{
+			rigid.MovePosition(targetDir);
+		}
+		else{
+			tran.position = Vector3.MoveTowards(tran.position,targetDir,1f);
+		}
 	}
 }

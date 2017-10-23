@@ -25,7 +25,8 @@ GameObject:
   - component: {fileID: 50278685357904644}
   - component: {fileID: 114662592251108226}
   - component: {fileID: 114108955162796256}
-  m_Layer: 9
+  - component: {fileID: 114476138069834348}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -40,7 +41,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4611942896742402}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Weapon_Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +94,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!61 &61664125450276546
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -131,6 +132,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!114 &114476138069834348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340306773228182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef62f83c4aa8414fb37b16bf932564a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
+  weaponSlot: {fileID: 4611942896742402}
 --- !u!114 &114662592251108226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +160,7 @@ MonoBehaviour:
   maxHearts: 3
   heartFab: {fileID: 1486933720304086, guid: f3ae76487adf8fd4b89b8a25a8ce11a1, type: 2}
   healthHUD: {fileID: 0}
+  gc: {fileID: 0}
 --- !u!114 &114701243540338614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,17 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30b4082c6c5f1e4c851a86367fa7aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
-  weaponImages:
-  - {fileID: 21300000, guid: 51a7e334dc7d124408de8c5bb3899766, type: 3}
-  - {fileID: 21300000, guid: 4f15aeec79a6e0c40aca3a73a568a931, type: 3}
-  - {fileID: 21300000, guid: 51a7e334dc7d124408de8c5bb3899766, type: 3}
-  currentWeaponIcon: {fileID: 0}
-  ammoCount: {fileID: 0}
-  weaponSlot: {fileID: 4611942896742402}
   mask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 4352
 --- !u!212 &212314522925374280
 SpriteRenderer:
   m_ObjectHideFlags: 1

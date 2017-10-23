@@ -92,6 +92,7 @@ MonoBehaviour:
   bulletFab: {fileID: 1951853930292354, guid: 2cf377f29debd3e429f1e052e5768b5c, type: 2}
   Muzzle: {fileID: 4773287945968594}
   clipSize: 15
+  fireRate: 0.05
 --- !u!212 &212400487530764112
 SpriteRenderer:
   m_ObjectHideFlags: 1

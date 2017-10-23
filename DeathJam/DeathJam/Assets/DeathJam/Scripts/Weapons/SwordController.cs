@@ -9,7 +9,7 @@ public class SwordController : Weapon
 
 	void Start()
 	{
-		anim = GetComponent<Animator>();
+		anim = transform.parent.GetComponent<Animator>();
 	}
 	void LateUpdate()
 	{

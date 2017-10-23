@@ -12,6 +12,7 @@ public class GunController : Weapon
 	[SerializeField] GameObject bulletFab;
 	[SerializeField] Transform Muzzle;
 	[SerializeField] int clipSize = 10;
+	[SerializeField][Tooltip("in fractions of a second")] float fireRate = 0.15f;
 	GameObject[] bulletPool;
 	bool canFire = true;
 

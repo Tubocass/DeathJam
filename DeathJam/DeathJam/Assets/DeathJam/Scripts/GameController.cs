@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
 	{
 		scoreUI.points = 0;
 		scoreUI.waves = 0;
+		wave = 0;
 		GameOverScreen.gameObject.SetActive(false);
 		//enemySpawn.EnableSpawn(true);
 		Player.transform.position = Vector2.zero;
