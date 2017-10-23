@@ -7,13 +7,17 @@ using UnityEngine.Events;
 public class EnemyController : MonoBehaviour, IHealth 
 {
 	public int pointValue = 1;
+	public AudioClip death;
+	public AudioClip hit;
 	[SerializeField] Transform target;
-	[SerializeField] GameObject weapon;
-	[SerializeField] float moveSpeed;
-	Weapon currentWeapon;
+//	[SerializeField] GameObject weapon;
+//	Weapon currentWeapon;
+	UnitMover mover;
 	Vector3 movement;
-	[SerializeField] int startHealth = 10;
+	SpriteRenderer spriteRenderer;
+	[SerializeField] int startHealth = 3;
 	int health;
+	Color original;
 
 	void OnEnable()
 	{
@@ -22,18 +26,22 @@ public class EnemyController : MonoBehaviour, IHealth
 	void Start()
 	{
 		target = GameObject.FindGameObjectWithTag("Player").transform;
-		if(weapon!=null)
-		{
-			currentWeapon = weapon.GetComponent<Weapon>();
-		}
+		mover = GetComponent<UnitMover>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		original = spriteRenderer.color;
+//		if(weapon!=null)
+//		{
+//			currentWeapon = weapon.GetComponent<Weapon>();
+//		}
 	}
 	void Update()
 	{
 		if(target!=null)
 		{
 			movement = (target.position-transform.position).normalized;
-			Vector3 targetDir  = transform.position + (movement * moveSpeed * Time.deltaTime);//paranthesis for clarity
-			transform.position = Vector3.MoveTowards(transform.position,targetDir,1f);
+			mover.Move(movement);
+//			Vector3 targetDir  = transform.position + (movement * moveSpeed * Time.deltaTime);//paranthesis for clarity
+//			transform.position = Vector3.MoveTowards(transform.position,targetDir,1f);
 		}
 	}
 	public void TakeDamage(int amount)
@@ -43,7 +51,20 @@ public class EnemyController : MonoBehaviour, IHealth
 		{
 			gameObject.SetActive(false);
 			UnityEventManager.TriggerEvent("Score",pointValue);
+			SoundManager.instance.PlaySingle(death);
+			StopCoroutine(FlashDamage());
+			spriteRenderer.color = original;
+		}else
+		{
+			SoundManager.instance.PlaySingle(hit);
+			spriteRenderer.color = Color.white;
+			StartCoroutine(FlashDamage());
 		}
+	}
+	IEnumerator FlashDamage()
+	{
+		yield return new WaitForSeconds(0.2f);
+		spriteRenderer.color = original;
 	}
 	public void Heal(int Amount)
 	{}

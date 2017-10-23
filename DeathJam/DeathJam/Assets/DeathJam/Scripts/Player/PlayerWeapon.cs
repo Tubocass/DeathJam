@@ -21,7 +21,7 @@ public class PlayerWeapon : MonoBehaviour
 		{
 			if (currentWeapon != null) 
 			{
-				currentWeapon.UnEquip ();
+				UnequipWeapon();
 			}
 			currentWeapon = weaponObj.GetComponent<Weapon>();
 			if(currentWeapon!=null)
@@ -32,6 +32,16 @@ public class PlayerWeapon : MonoBehaviour
 				ui.ChangeWeapon(currentWeapon.myType,currentWeapon.ammo);
 				currentWeapon.isEquipped = true;
 			}
+		}
+	}
+	public void UnequipWeapon()
+	{
+		if(currentWeapon!=null)
+		{
+			currentWeapon.transform.parent = null;
+			currentWeapon.isEquipped = false;
+			ui.ChangeWeapon(0,0);
+			Destroy(currentWeapon.gameObject,3f);
 		}
 	}
 		

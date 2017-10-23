@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114956402071883736}
   - component: {fileID: 61423776554724356}
   - component: {fileID: 50211351192027650}
+  - component: {fileID: 114345272380859906}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -88,6 +89,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66032606, y: 1.4211956}
   m_EdgeRadius: 0
+--- !u!114 &114345272380859906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440230144026022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e45e0b46de1ca4988328bbfcbcf340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!114 &114956402071883736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,10 +113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointValue: 1
+  death: {fileID: 8300000, guid: e352fac2a0c9f3947ac7fbaa8f68b051, type: 3}
+  hit: {fileID: 8300000, guid: 17cd8750026cf5b4b83b0ca0e559b065, type: 3}
   target: {fileID: 0}
-  weapon: {fileID: 0}
-  moveSpeed: 3
-  startHealth: 10
+  startHealth: 3
 --- !u!212 &212164548036061902
 SpriteRenderer:
   m_ObjectHideFlags: 1

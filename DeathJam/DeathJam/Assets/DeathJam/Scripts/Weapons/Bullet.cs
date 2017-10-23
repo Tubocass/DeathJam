@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
 		if(bam.collider.CompareTag("Enemy"))
 		{
 			var enemy = bam.collider.GetComponent<IHealth>();
-			enemy.TakeDamage(5);
+			enemy.TakeDamage(1);
 		}
 		if(!bam.collider.CompareTag("Weapon"))
 		{
