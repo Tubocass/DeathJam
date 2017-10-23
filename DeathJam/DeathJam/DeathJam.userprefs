@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DeathJam\Scripts\Weapons\WeaponUI.cs">
+    <Files>
+      <File FileName="Assets\DeathJam\Scripts\EnemyController.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\SoundManager.cs" Line="8" Column="16" />
+      <File FileName="Assets\DeathJam\Scripts\Player\InputControls.cs" Line="8" Column="34" />
+      <File FileName="Assets\DeathJam\Scripts\Player\PlayerWeapon.cs" Line="9" Column="40" />
+      <File FileName="Assets\DeathJam\Scripts\Player\UnitMover.cs" Line="31" Column="5" />
+      <File FileName="Assets\DeathJam\Scripts\Weapons\WeaponUI.cs" Line="15" Column="46" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\Weapons\GunController.cs" Line="9" Column="25" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\Weapons\Weapon.cs" Line="7" Column="55" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\HealthBar.cs" Line="1" Column="1" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
