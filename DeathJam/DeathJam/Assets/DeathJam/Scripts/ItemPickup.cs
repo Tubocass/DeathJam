@@ -6,14 +6,14 @@ public class ItemPickup : MonoBehaviour
 {
 	public GameObject item;
 	public GameObject[] possibleItems;
-	SpriteRenderer renderer;
+	SpriteRenderer spriteRend;
 	Vector3 spawnPoint;
 	bool bActive;
 
 	void Start()
 	{
-		renderer = GetComponent<SpriteRenderer>();
-		bActive = renderer.enabled;
+		spriteRend = GetComponent<SpriteRenderer>();
+		bActive = spriteRend.enabled;
 		//item = (GameObject)Instantiate(possibleItems[Random.Range(0,1)],transform.position,Quaternion.identity);
 		StartCoroutine(SpawnTimer());
 	}
@@ -28,7 +28,7 @@ public class ItemPickup : MonoBehaviour
 				transform.position = spawnPoint;
 				item = (GameObject)Instantiate(possibleItems[Random.Range(0,2)],transform);
 				item.transform.localPosition = Vector2.zero;
-				renderer.enabled = true;
+				spriteRend.enabled = true;
 				bActive = true;
 			}else 
 			{
@@ -43,7 +43,7 @@ public class ItemPickup : MonoBehaviour
 	}
 	public void Disable()
 	{
-		renderer.enabled =false;
+		spriteRend.enabled =false;
 		bActive = false;
 		if(item!=null)
 		{

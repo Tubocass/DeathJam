@@ -59,6 +59,7 @@
      <Compile Include="Assets\DeathJam\Scripts\IHealth.cs" />
      <Compile Include="Assets\DeathJam\Scripts\IPickup.cs" />
      <Compile Include="Assets\DeathJam\Scripts\ItemPickup.cs" />
+     <Compile Include="Assets\DeathJam\Scripts\ObjectPool.cs" />
      <Compile Include="Assets\DeathJam\Scripts\Player\InputControls.cs" />
      <Compile Include="Assets\DeathJam\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\DeathJam\Scripts\Player\PlayerWeapon.cs" />

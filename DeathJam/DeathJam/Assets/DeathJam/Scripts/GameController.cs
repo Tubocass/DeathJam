@@ -9,12 +9,15 @@ public class GameController : MonoBehaviour
 	[SerializeField] ScoreUI scoreUI;
 	[SerializeField] EnemySpawner enemySpawn;
 	[SerializeField] GameObject Player;
+	[SerializeField] GameObject bulletFab;
 	public int[] waveAmounts;
 	int killed, wave;
 
 	void OnEnable()
 	{
 		UnityEventManager.StartListeningInt("Score",CountKilled);
+		ObjectPool.CreatePool("Bullets", 20, bulletFab);
+
 	}
 	void OnDisable()
 	{

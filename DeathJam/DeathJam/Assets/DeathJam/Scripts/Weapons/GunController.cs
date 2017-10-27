@@ -9,22 +9,12 @@ public class GunController : Weapon
 	public AudioClip shot3;
 	public AudioClip drop;
 	public AudioClip pickup;
-	[SerializeField] GameObject bulletFab;
 	[SerializeField] Transform Muzzle;
 	[SerializeField] int clipSize = 10;
 	[SerializeField][Tooltip("in fractions of a second")] float fireRate = 0.15f;
-	GameObject[] bulletPool;
 	bool canFire = true;
+	delegate void Fire(GameObject bullet, Vector2 direction);
 
-	void OnEnable()
-	{
-		bulletPool = new GameObject[clipSize];
-		for(int b = 0; b<bulletPool.Length; b++)
-		{
-			bulletPool[b] = (GameObject)Instantiate(bulletFab,Muzzle.position,Quaternion.identity);
-			bulletPool[b].SetActive(false);
-		}
-	}
 	void Update()
 	{
 		if(isEquipped)
@@ -48,25 +38,42 @@ public class GunController : Weapon
 		if(canFire && ammo>0)
 		{
 			ammo--;
-			//Quaternion q = Quaternion.LookRotation(Direction - Muzzle.position, Vector3.forward);
-			for(int b = 0; b<bulletPool.Length; b++)
+			GameObject bullet = ObjectPool.DrawFromPool("Bullets");
+			if(bullet!=null)
 			{
-				if(!bulletPool[b].activeSelf)
-				{
-					bulletPool[b].transform.position = Muzzle.position;
-					bulletPool[b].transform.rotation = this.transform.rotation;
-					bulletPool[b].SetActive(true);
-					SoundManager.instance.RandomizeSfx(shot1,shot2,shot3);
-					break;
-				}
+				bullet.transform.position = Muzzle.position;
+				bullet.transform.rotation = this.transform.rotation;
+				bullet.SetActive(true);
+				SoundManager.instance.RandomizeSfx(shot1,shot2,shot3);
+				canFire = false;
+				StartCoroutine(Cooldown());
 			}
-			canFire = false;
-			StartCoroutine(Cooldown());
 		}
 	}
+		
 	public override void SecondaryAttack(Vector2 direction)
 	{
-		//Pistol whip
+		//Pistol whip?
+
+		//triple shot - figure out trig for this
+		Debug.Log("Secondary attack called on Gun");
+		if(canFire && ammo>=3)
+		{
+			ammo-=3;
+			GameObject[] bullets = ObjectPool.DrawFromPool(3, "Bullets");
+			if(bullets!=null)
+			{
+				for(int b = 0; b<bullets.Length;b++)
+				{
+					bullets[b].transform.position = Muzzle.position;
+					bullets[b].transform.rotation = transform.rotation;
+					bullets[b].SetActive(true);
+					SoundManager.instance.RandomizeSfx(shot1,shot2,shot3);
+					canFire = false;
+					StartCoroutine(Cooldown());
+				}
+			}
+		}
 	}
 	public override void Equip()
 	{}
@@ -74,11 +81,11 @@ public class GunController : Weapon
 	{
 		transform.parent = null;
 		isEquipped = false;
-		Destroy(gameObject,6f);
+		Destroy(gameObject,3f);
 	}
 	IEnumerator Cooldown()
 	{
-		yield return new WaitForSeconds(0.15f);
+		yield return new WaitForSeconds(fireRate);
 		canFire = true;
 	}
 }

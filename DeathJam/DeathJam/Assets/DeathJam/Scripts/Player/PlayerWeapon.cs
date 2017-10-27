@@ -53,4 +53,12 @@ public class PlayerWeapon : MonoBehaviour
 			ui.ammoAmount = currentWeapon.ammo;
 		}
 	}
+	public void SecondaryAttack(Vector2 dir)
+	{
+		if (currentWeapon!=null)
+		{
+			currentWeapon.SecondaryAttack(dir);
+			ui.ammoAmount = currentWeapon.ammo;
+		}
+	}
 }
