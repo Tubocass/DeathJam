@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour 
 {
-	public int team = 0;//0=player, 1=NPC
+	public int team = 0, damage = 1;//0=player, 1=NPC
 	[SerializeField] float speed = 4f, timer = 4f;
 	//Transform tran;
 	void OnEnable () 
@@ -13,7 +13,10 @@ public class Bullet : MonoBehaviour
 		GetComponent<Rigidbody2D>().velocity = transform.right*speed;
 		StartCoroutine(Death());
 	}
-
+	public void SetBullet(int dmg)
+	{
+		damage = dmg;
+	}
 	IEnumerator Death()
 	{
 		yield return new WaitForSeconds(timer);
@@ -29,7 +32,7 @@ public class Bullet : MonoBehaviour
 			case "Enemy":
 			{
 				var enemy = bam.collider.GetComponent<IHealth>();
-				enemy.TakeDamage(1);
+				enemy.TakeDamage(damage);
 				gameObject.SetActive(false);
 			}
 			break;

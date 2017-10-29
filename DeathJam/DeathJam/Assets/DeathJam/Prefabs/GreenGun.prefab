@@ -89,10 +89,10 @@ MonoBehaviour:
   shot3: {fileID: 8300000, guid: b943059ef64a132439b6fcd14e17fbb0, type: 3}
   drop: {fileID: 0}
   pickup: {fileID: 0}
-  bulletFab: {fileID: 1951853930292354, guid: 2cf377f29debd3e429f1e052e5768b5c, type: 2}
   Muzzle: {fileID: 4163561982255070}
   clipSize: 15
-  fireRate: 0.05
+  bulletDamage: 2
+  fireRate: 0.35
 --- !u!212 &212742851625014740
 SpriteRenderer:
   m_ObjectHideFlags: 1

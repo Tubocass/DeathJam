@@ -10,7 +10,7 @@ public class GunController : Weapon
 	public AudioClip drop;
 	public AudioClip pickup;
 	[SerializeField] Transform Muzzle;
-	[SerializeField] int clipSize = 10;
+	[SerializeField] int clipSize = 10, bulletDamage = 1;
 	[SerializeField][Tooltip("in fractions of a second")] float fireRate = 0.15f;
 	bool canFire = true;
 	delegate void Fire(GameObject bullet, Vector2 direction);
@@ -43,6 +43,7 @@ public class GunController : Weapon
 			{
 				bullet.transform.position = Muzzle.position;
 				bullet.transform.rotation = this.transform.rotation;
+				bullet.GetComponent<Bullet>().SetBullet(bulletDamage);
 				bullet.SetActive(true);
 				SoundManager.instance.RandomizeSfx(shot1,shot2,shot3);
 				canFire = false;
@@ -67,6 +68,7 @@ public class GunController : Weapon
 				{
 					bullets[b].transform.position = Muzzle.position;
 					bullets[b].transform.rotation = transform.rotation;
+					bullets[b].GetComponent<Bullet>().SetBullet(bulletDamage);
 					bullets[b].SetActive(true);
 					SoundManager.instance.RandomizeSfx(shot1,shot2,shot3);
 					canFire = false;

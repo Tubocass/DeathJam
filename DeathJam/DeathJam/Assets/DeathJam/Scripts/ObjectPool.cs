@@ -20,10 +20,10 @@ public class ObjectPool : MonoBehaviour
 //	static ObjectPool instance;
 	static Dictionary <string, GameObject[]> ObjectDictionary = new Dictionary<string, GameObject[]>();
 
-	static ObjectPool()
-	{
-		ObjectPool.ObjectDictionary = new Dictionary<string, GameObject[]>();
-	}
+//	static ObjectPool()
+//	{
+//		ObjectPool.ObjectDictionary = new Dictionary<string, GameObject[]>();
+//	}
 	public static void CreatePool(string name, int amount, GameObject obj)
 	{
 		GameObject[] newPool = new GameObject[amount];

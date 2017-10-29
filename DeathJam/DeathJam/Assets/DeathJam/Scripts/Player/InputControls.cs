@@ -7,11 +7,13 @@ public class InputControls : MonoBehaviour
 {
 	[SerializeField] LayerMask mask;
 	UnitMover mover;
+	Animator anim;
 	PlayerHealth myHealth;
 	PlayerWeapon myWeapon;
 
 	void Start()
 	{
+		anim = GetComponent<Animator>();
 		mover = GetComponent<UnitMover>();
 		myHealth = GetComponent<PlayerHealth>();
 		myWeapon = GetComponent<PlayerWeapon>();
@@ -32,7 +34,11 @@ public class InputControls : MonoBehaviour
 //
 		if(lastInputX != 0f || lastInputY != 0f)
 		{
+			Vector2 movement = new Vector2(lastInputX, lastInputY);
 			mover.Move(new Vector3(lastInputX, lastInputY));
+			anim.SetFloat("X",lastInputX);
+			anim.SetFloat("Y",lastInputY);
+			anim.SetFloat("Speed", movement.magnitude);
 		}
 
 		if (Input.GetMouseButton (0)) 

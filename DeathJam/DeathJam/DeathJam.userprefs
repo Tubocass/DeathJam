@@ -1,21 +1,33 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DeathJam\Scripts\Player\PlayerWeapon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DeathJam\Scripts\GameController.cs">
     <Files>
-      <File FileName="Assets\DeathJam\Scripts\EnemyController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\SoundManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\Player\InputControls.cs" Line="35" Column="10" />
-      <File FileName="Assets\DeathJam\Scripts\Player\PlayerWeapon.cs" Line="53" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\Player\UnitMover.cs" Line="37" Column="33" />
-      <File FileName="Assets\DeathJam\Scripts\Weapons\GunController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\Weapons\Bullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\EnemySpawner.cs" Line="57" Column="55" />
-      <File FileName="Assets\DeathJam\Scripts\GameController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\ScoreUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\HealthBar.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\Player\PlayerHealth.cs" Line="1" Column="1" />
-      <File FileName="Assets\DeathJam\Scripts\CameraFollow.cs" Line="10" Column="18" />
+      <File FileName="Assets\DeathJam\Scripts\EnemyController.cs" Line="52" Column="32" />
+      <File FileName="Assets\DeathJam\Scripts\Player\InputControls.cs" Line="33" Column="43" />
+      <File FileName="Assets\DeathJam\Scripts\Player\PlayerWeapon.cs" Line="1" Column="1" />
+      <File FileName="Assets\DeathJam\Scripts\Weapons\GunController.cs" Line="6" Column="2" />
+      <File FileName="Assets\DeathJam\Scripts\Weapons\Bullet.cs" Line="35" Column="14" />
+      <File FileName="Assets\DeathJam\Scripts\IHealth.cs" Line="7" Column="2" />
+      <File FileName="Assets\DeathJam\Scripts\GameController.cs" Line="75" Column="61" NotebookId="1" />
+      <File FileName="Assets\DeathJam\Scripts\ObjectPool.cs" Line="54" Column="2" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DeathJam" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="DeathJam" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Player" expanded="True" />
+                  <Node name="Weapons" expanded="True" />
+                  <Node name="GameController.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

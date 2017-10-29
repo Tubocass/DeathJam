@@ -26,7 +26,7 @@ public class ItemPickup : MonoBehaviour
 			{
 				spawnPoint = new Vector3(Random.Range(-6,6),Random.Range(-4,4));
 				transform.position = spawnPoint;
-				item = (GameObject)Instantiate(possibleItems[Random.Range(0,2)],transform);
+				item = (GameObject)Instantiate(possibleItems[Random.Range(0,possibleItems.Length)],transform);
 				item.transform.localPosition = Vector2.zero;
 				spriteRend.enabled = true;
 				bActive = true;
