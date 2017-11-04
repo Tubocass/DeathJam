@@ -64,10 +64,13 @@ public class GunController : Weapon
 			GameObject[] bullets = ObjectPool.DrawFromPool(3, "Bullets");
 			if(bullets!=null)
 			{
+				float angle = -30;
 				for(int b = 0; b<bullets.Length;b++)
 				{
+					
 					bullets[b].transform.position = Muzzle.position;
-					bullets[b].transform.rotation = transform.rotation;
+					bullets[b].transform.rotation =  Quaternion.AngleAxis(angle,Vector3.forward);
+					angle+=30;
 					bullets[b].GetComponent<Bullet>().SetBullet(bulletDamage);
 					bullets[b].SetActive(true);
 					SoundManager.instance.RandomizeSfx(shot1,shot2,shot3);

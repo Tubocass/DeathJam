@@ -27,6 +27,11 @@ public class ScoreUI : MonoBehaviour
 		GetComponent<Text>().text =  string.Format("Points: {0}  Waves: {1}", points, waves);	
 	}
 
+	public void Reset()
+	{
+		points = 0;
+		waves = 1;
+	}
 	public void AddPoints(int amount)
 	{
 		points+= waves*amount;

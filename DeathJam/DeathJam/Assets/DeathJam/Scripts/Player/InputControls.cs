@@ -26,7 +26,7 @@ public class InputControls : MonoBehaviour
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 //		float lastInputScroll = Input.GetAxis("Mouse ScrollWheel");
-//				if(lastInputScroll>0f || lastInputScroll<0f)
+//		if(lastInputScroll>0f || lastInputScroll<0f)
 //		{
 //			Camera.main.orthographicSize -= lastInputScroll* scrollSpeed;
 //			Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minFOV, maxFOV);

@@ -5,22 +5,23 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour 
 {
+	public int[] waveAmounts;
+	public int enemyNumber = 10;
 	[SerializeField] RectTransform GameOverScreen;
 	[SerializeField] ScoreUI scoreUI;
 	[SerializeField] EnemySpawner enemySpawn;
 	[SerializeField] GameObject Player;
-	[SerializeField] GameObject bulletFab, enemyPrefab;
-	public int[] waveAmounts;
-	public int enemyNumber = 10;
+	[SerializeField] GameObject bulletFab, enemyFab;
 	GameObject[] enemies;
 	Transform[] spawnPoints;
 	int killed, wave, spawned;
 
 	void OnEnable()
 	{
+		Player = GameObject.FindGameObjectWithTag("Player");
 		UnityEventManager.StartListeningInt("Score",CountKilled);
 		ObjectPool.CreatePool("Bullets", 20, bulletFab);
-		ObjectPool.CreatePool("Enemies",enemyNumber, enemyPrefab);
+		ObjectPool.CreatePool("Enemies",enemyNumber, enemyFab);
 		enemies = ObjectPool.DrawFromPool(enemyNumber,"Enemies");
 		//for different enemy types we could have diferent pools
 		spawnPoints = GetComponentsInChildren<Transform>();
@@ -49,8 +50,7 @@ public class GameController : MonoBehaviour
 
 	public void StartNewGame()
 	{
-		scoreUI.points = 0;
-		scoreUI.waves = 1;
+		scoreUI.Reset();
 		wave = 0;
 		GameOverScreen.gameObject.SetActive(false);
 		//enemySpawn.EnableSpawn(true);
@@ -66,8 +66,7 @@ public class GameController : MonoBehaviour
 	}
 	IEnumerator GenerateWave()
 	{
-		while(wave<waveAmounts.Length)
-		{
+		do{
 			//StartCoroutine(enemySpawn.Spawn(waveAmounts[wave]));
 			killed = 0;
 			spawned = 0;
@@ -93,7 +92,7 @@ public class GameController : MonoBehaviour
 			wave+=1;
 			yield return new WaitForSeconds(5f);
 			UnityEventManager.TriggerEvent("NewWave");
-		}
+		}while(wave<waveAmounts.Length);
 		//GameOver();
 	}
 
