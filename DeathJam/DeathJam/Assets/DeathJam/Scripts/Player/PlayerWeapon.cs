@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerWeapon : MonoBehaviour 
 {
-	[SerializeField] GameObject weapon;
+	public bool isWeaponEquipped;
+	[SerializeField] Weapon[] weapons;
 	[SerializeField] Transform weaponSlot;
 	Weapon currentWeapon;
 	WeaponUI ui;
@@ -13,25 +14,38 @@ public class PlayerWeapon : MonoBehaviour
 	void Start()
 	{
 		ui = GameObject.FindGameObjectWithTag("WeaponUI").GetComponent<WeaponUI>();
-		EquipWeapon(weapon);
+		ChangeWeapon(weapons[0]);
+	}
+
+	void Update()
+	{
+//		if(isWeaponEquipped)
+//		{
+//			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+//			Quaternion rot = Quaternion.LookRotation (transform.position - mousePos, Vector3.forward);
+//			transform.rotation = rot;
+//			transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z+90);
+//			if(Vector3.Dot(mousePos-transform.position,Vector3.right)>0)//mouse is to the right of us
+//			{
+//				GetComponent<SpriteRenderer>().flipY = false;
+//
+//			}else
+//			{
+//				GetComponent<SpriteRenderer>().flipY = true;
+//			}
+//		}
 	}
 	public void EquipWeapon(GameObject weaponObj)
 	{
-		if(weaponObj!=null)
+		if(weaponObj.GetComponent<Weapon>() !=null)
 		{
 			if (currentWeapon != null) 
 			{
-				UnequipWeapon();
+				//UnequipWeapon();
 			}
-			currentWeapon = weaponObj.GetComponent<Weapon>();
-			if(currentWeapon!=null)
-			{
-				weaponObj.transform.parent = weaponSlot;
-				weaponObj.transform.position = weaponSlot.position;
-				currentWeapon = weaponObj.GetComponent<Weapon>();
-				ui.ChangeWeapon(currentWeapon.myType,currentWeapon.ammo);
-				currentWeapon.isEquipped = true;
-			}
+			weaponObj.transform.parent = weaponSlot;
+			weaponObj.transform.position = weaponSlot.position;
+			ChangeWeapon(weaponObj.GetComponent<Weapon>());
 		}
 	}
 	public void UnequipWeapon()
@@ -44,11 +58,17 @@ public class PlayerWeapon : MonoBehaviour
 			Destroy(currentWeapon.gameObject,3f);
 		}
 	}
-		
+	public void ChangeWeapon(Weapon w)
+	{
+		currentWeapon = w;
+		ui.ChangeWeapon(currentWeapon.myType,currentWeapon.ammo);
+		currentWeapon.isEquipped = true;
+		isWeaponEquipped = true;
+	}
 	public void PrimaryAttack(Vector2 dir)
 	{
 		if (currentWeapon!=null)
-		{
+		{Debug.Log("pew");
 			currentWeapon.PrimaryAttack(dir);
 			ui.ammoAmount = currentWeapon.ammo;
 		}

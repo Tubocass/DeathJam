@@ -67,7 +67,6 @@ public class GunController : Weapon
 				float angle = -30;
 				for(int b = 0; b<bullets.Length;b++)
 				{
-					
 					bullets[b].transform.position = Muzzle.position;
 					bullets[b].transform.rotation =  Quaternion.AngleAxis(angle,Vector3.forward);
 					angle+=30;

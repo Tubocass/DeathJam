@@ -7,15 +7,12 @@ using UnityEngine.Events;
 public class ScoreUI : MonoBehaviour 
 {
 	public int points = 0, waves = 1;
-	//UnityAction<int> score;
 
 	void Start()
 	{
 		GetComponent<Text>().text =  string.Format("Points: {0}  Waves: {1}", points, waves);
 		UnityEventManager.StartListeningInt("Score", AddPoints);
 		UnityEventManager.StartListening("NewWave", AddWave);
-		//score = AddPoints;
-		//EnemyController.Death.AddListener(score);
 	}
 	void OnDisable()
 	{

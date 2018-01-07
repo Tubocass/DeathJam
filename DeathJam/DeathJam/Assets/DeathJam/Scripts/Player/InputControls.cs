@@ -36,17 +36,18 @@ public class InputControls : MonoBehaviour
 		{
 			Vector2 movement = new Vector2(lastInputX, lastInputY);
 			mover.Move(new Vector3(lastInputX, lastInputY));
-			anim.SetFloat("X",lastInputX);
-			anim.SetFloat("Y",lastInputY);
-			anim.SetFloat("Speed", movement.magnitude);
+//			anim.SetFloat("X",lastInputX);
+//			anim.SetFloat("Y",lastInputY);
+//			anim.SetFloat("Speed", movement.magnitude);
 		}
 
 		if (Input.GetMouseButton (0)) 
 		{
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			if (Physics.Raycast (ray, out hit, 20f, mask)) 
+			if (Physics.Raycast (ray, out hit, 100f, mask)) 
 			{
+				Debug.Log("pew");
 				Vector3 dir = hit.point-transform.position;
 				dir = dir/dir.magnitude;
 				myWeapon.PrimaryAttack(dir);

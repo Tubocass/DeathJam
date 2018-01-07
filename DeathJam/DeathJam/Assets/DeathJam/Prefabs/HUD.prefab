@@ -53,9 +53,10 @@ GameObject:
   m_Component:
   - component: {fileID: 224429695821042824}
   - component: {fileID: 114964781208169696}
+  - component: {fileID: 114704159582006334}
   m_Layer: 5
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: WeaponUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +143,25 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &114704159582006334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490780926899104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a99d209e837a440a5a3ceb86642a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponImages:
+  - {fileID: 21300000, guid: 2f5506246944fb44eb8876bf944fca34, type: 3}
+  - {fileID: 21300000, guid: 51a7e334dc7d124408de8c5bb3899766, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: c966dc26ca6d7334d9626958ac700ea5, type: 3}
+  currentWeaponIcon: {fileID: 114061620176049642}
+  ammoCounter: {fileID: 114816848133758624}
+  ammoAmount: 0
 --- !u!114 &114816848133758624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,7 +277,7 @@ RectTransform:
   m_GameObject: {fileID: 1587575660316348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 224259417138430554}
   - {fileID: 224429695821042824}
@@ -266,7 +286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -538.88, y: 382.57}
+  m_AnchoredPosition: {x: -267, y: 192}
   m_SizeDelta: {x: 610, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224259417138430554

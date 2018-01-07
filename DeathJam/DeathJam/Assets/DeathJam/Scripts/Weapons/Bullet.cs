@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 	void OnEnable () 
 	{
 		//tran = transform;
-		GetComponent<Rigidbody2D>().velocity = transform.right*speed;
+		GetComponent<Rigidbody2D>().velocity = transform.up*speed;
 		StartCoroutine(Death());
 	}
 	public void SetBullet(int dmg)

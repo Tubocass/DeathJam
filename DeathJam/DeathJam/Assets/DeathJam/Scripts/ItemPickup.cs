@@ -14,7 +14,7 @@ public class ItemPickup : MonoBehaviour
 	{
 		spriteRend = GetComponent<SpriteRenderer>();
 		bActive = spriteRend.enabled;
-		//item = (GameObject)Instantiate(possibleItems[Random.Range(0,1)],transform.position,Quaternion.identity);
+		item = (GameObject)Instantiate(possibleItems[Random.Range(0,1)],transform.position,Quaternion.identity);
 		StartCoroutine(SpawnTimer());
 	}
 

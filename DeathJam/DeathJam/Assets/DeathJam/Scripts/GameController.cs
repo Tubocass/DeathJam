@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
 	}
 	void Start()
 	{
-		StartCoroutine(GenerateWave());
+		//StartCoroutine(GenerateWave());
 	}
 
 	public void GameOver()
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
 		Player.transform.position = Vector2.zero;
 		Player.SetActive(true);
 		Player.GetComponent<PlayerHealth>().Heal(9);
-		StartCoroutine(GenerateWave());
+		//StartCoroutine(GenerateWave());
 	}
 	void CountKilled(int i)
 	{
