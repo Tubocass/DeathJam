@@ -68,7 +68,7 @@ public class PlayerWeapon : MonoBehaviour
 	public void PrimaryAttack(Vector2 dir)
 	{
 		if (currentWeapon!=null)
-		{Debug.Log("pew");
+		{
 			currentWeapon.PrimaryAttack(dir);
 			ui.ammoAmount = currentWeapon.ammo;
 		}

@@ -34,6 +34,17 @@ public class ObjectPool : MonoBehaviour
 		}
 		ObjectPool.ObjectDictionary.Add(name, newPool);
 	}
+	public static void DestroyPool(string name)
+	{
+		if(ObjectPool.ObjectDictionary.ContainsKey(name))
+		{
+			ObjectPool.ObjectDictionary.Remove(name);
+		}
+	}
+	public static void CloseDictionary()
+	{
+		ObjectPool.ObjectDictionary.Clear();
+	}
 	public static GameObject DrawFromPool(string pool)
 	{
 		GameObject[] objectPool;

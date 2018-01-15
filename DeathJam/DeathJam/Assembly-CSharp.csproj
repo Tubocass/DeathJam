@@ -74,6 +74,7 @@
      <Compile Include="Assets\DeathJam\Scripts\Weapons\WeaponUI.cs" />
      <Compile Include="Assets\Dungeon Art Pack\AnimateSprite.cs" />
      <Compile Include="Assets\ShootStuffBlamBlam\Scripts\BasicMG.cs" />
+     <Compile Include="Assets\ShootStuffBlamBlam\Scripts\MainMenu.cs" />
      <Compile Include="Assets\ShootStuffBlamBlam\Scripts\ShipWeapon.cs" />
      <None Include="Assets\ActRPGsprites\readme.txt" />
  <Reference Include="UnityEngine.UI">

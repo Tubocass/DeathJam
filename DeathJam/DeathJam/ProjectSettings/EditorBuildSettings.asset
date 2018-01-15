@@ -6,5 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MainMenuScreen.unity
+    guid: e9b6ae8141e8fc2449b0ce136b7e209c
+  - enabled: 1
     path: Assets/DeathJam/DeathJam.unity
     guid: e2efb95855c06ab428576ce4cb36173d
+  - enabled: 1
+    path: Assets/ShootStuffBlamBlam/BlamMain.unity
+    guid: e2fd6babf08fce64ba559967a643ae7a

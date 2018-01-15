@@ -17,10 +17,9 @@ public class BasicMG : ShipWeapon
 	delegate void Fire(GameObject bullet, Vector2 direction);
 
 	public override void PrimaryAttack(Vector2 direction)
-	{Debug.Log("pew");
+	{
 		if(canFire && ammo>0)
 		{
-			Debug.Log("pew");
 			ammo--;
 			GameObject bullet = ObjectPool.DrawFromPool("Bullets");
 			if(bullet!=null)

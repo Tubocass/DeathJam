@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour, IHealth
 	public AudioClip death;
 	public AudioClip hit;
 	[SerializeField] Transform target;
+	[SerializeField] GameObject explosion;
 //	[SerializeField] GameObject weapon;
 //	Weapon currentWeapon;
 	UnitMover mover;
@@ -42,9 +43,12 @@ public class EnemyController : MonoBehaviour, IHealth
 		{
 			movement = (target.position-transform.position).normalized;
 			mover.Move(movement);
-			anim.SetFloat("X",movement.x);
-			anim.SetFloat("Y",movement.y);
-			anim.SetFloat("Speed", movement.magnitude);
+			if(anim.runtimeAnimatorController!=null)
+			{
+				anim.SetFloat("X",movement.x);
+				anim.SetFloat("Y",movement.y);
+				anim.SetFloat("Speed", movement.magnitude);
+			}
 //			Vector3 targetDir  = transform.position + (movement * moveSpeed * Time.deltaTime);//paranthesis for clarity
 //			transform.position = Vector3.MoveTowards(transform.position,targetDir,1f);
 		}
@@ -54,11 +58,7 @@ public class EnemyController : MonoBehaviour, IHealth
 		health -=amount;
 		if(health<=0)
 		{
-			gameObject.SetActive(false);
-			UnityEventManager.TriggerEvent("Score",pointValue);
-			SoundManager.instance.PlaySingle(death);
-			StopCoroutine(FlashDamage());
-			spriteRenderer.color = original;
+			Die();
 		}else
 		{
 			SoundManager.instance.PlaySingle(hit);
@@ -71,6 +71,17 @@ public class EnemyController : MonoBehaviour, IHealth
 		yield return new WaitForSeconds(0.2f);
 		spriteRenderer.color = original;
 	}
+	public void Die ()
+	{
+		GameObject boom = Instantiate(explosion,transform.position,Quaternion.identity) as GameObject;
+		Destroy(boom,3f);
+		this.gameObject.SetActive(false);
+		UnityEventManager.TriggerEvent("Score",pointValue);
+		SoundManager.instance.PlaySingle(death);
+		StopCoroutine(FlashDamage());
+		spriteRenderer.color = original;
+	}
+
 	public void Heal(int Amount)
 	{}
 }

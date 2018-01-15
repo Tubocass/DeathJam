@@ -47,7 +47,6 @@ public class InputControls : MonoBehaviour
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			if (Physics.Raycast (ray, out hit, 100f, mask)) 
 			{
-				Debug.Log("pew");
 				Vector3 dir = hit.point-transform.position;
 				dir = dir/dir.magnitude;
 				myWeapon.PrimaryAttack(dir);

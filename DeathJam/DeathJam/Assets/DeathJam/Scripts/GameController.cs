@@ -30,10 +30,11 @@ public class GameController : MonoBehaviour
 	void OnDisable()
 	{
 		UnityEventManager.StopListeningInt("Score",CountKilled);
+		ObjectPool.CloseDictionary();
 	}
 	void Start()
 	{
-		//StartCoroutine(GenerateWave());
+		StartCoroutine(GenerateWave());
 	}
 
 	public void GameOver()
@@ -53,11 +54,10 @@ public class GameController : MonoBehaviour
 		scoreUI.Reset();
 		wave = 0;
 		GameOverScreen.gameObject.SetActive(false);
-		//enemySpawn.EnableSpawn(true);
 		Player.transform.position = Vector2.zero;
 		Player.SetActive(true);
 		Player.GetComponent<PlayerHealth>().Heal(9);
-		//StartCoroutine(GenerateWave());
+		StartCoroutine(GenerateWave());
 	}
 	void CountKilled(int i)
 	{
@@ -67,7 +67,6 @@ public class GameController : MonoBehaviour
 	IEnumerator GenerateWave()
 	{
 		do{
-			//StartCoroutine(enemySpawn.Spawn(waveAmounts[wave]));
 			killed = 0;
 			spawned = 0;
 			Vector2 point = (Vector2)spawnPoints[Random.Range(1,spawnPoints.Length)].position;
@@ -87,8 +86,6 @@ public class GameController : MonoBehaviour
 				}
 				yield return null;
 			}
-			//enemySpawn.DisableSpawn();
-
 			wave+=1;
 			yield return new WaitForSeconds(5f);
 			UnityEventManager.TriggerEvent("NewWave");
