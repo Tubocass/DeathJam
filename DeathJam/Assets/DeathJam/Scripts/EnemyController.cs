@@ -73,8 +73,8 @@ public class EnemyController : MonoBehaviour, IHealth
 	}
 	public void Die ()
 	{
-		GameObject boom = Instantiate(explosion,transform.position,Quaternion.identity) as GameObject;
-		Destroy(boom,3f);
+		//GameObject boom = Instantiate(explosion,transform.position,Quaternion.identity) as GameObject;
+		//Destroy(boom,3f);
 		this.gameObject.SetActive(false);
 		UnityEventManager.TriggerEvent("Score",pointValue);
 		SoundManager.instance.PlaySingle(death);
